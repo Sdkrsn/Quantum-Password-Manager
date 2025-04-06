@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "argon2": "^0.41.1",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}

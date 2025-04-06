@@ -1,25 +1,32 @@
-from pqcrypto.kem import kyber512
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from argon2 import PasswordHasher
 import os
 
-class QuantumCrypto:
-    @staticmethod
-    def generate_kyber_keys():
-        """Generate quantum-safe key pair"""
-        return kyber512.keypair()
+# Simulated Kyber Key Exchange
+def kyber_key_exchange():
+    return os.urandom(32)  # 256-bit symmetric key
 
-    @staticmethod
-    def encrypt_password(password, public_key):
-        """Encrypt password using Kyber"""
-        ciphertext, _ = kyber512.enc(public_key)
-        return ciphertext
+# AES Encryption
+def encrypt_password(password, key):
+    aesgcm = AESGCM(key)
+    nonce = os.urandom(12)
+    ciphertext = aesgcm.encrypt(nonce, password.encode(), None)
+    return nonce + ciphertext
 
-    @staticmethod
-    def hash_master_password(password):
-        """Hash password with Argon2"""
-        ph = PasswordHasher(
-            time_cost=3,       # Increased from default 2
-            memory_cost=65536, # 64MB memory usage
-            parallelism=4      # Use 4 threads
-        )
-        return ph.hash(password)
+def decrypt_password(encrypted_data, key):
+    aesgcm = AESGCM(key)
+    nonce = encrypted_data[:12]
+    ct = encrypted_data[12:]
+    return aesgcm.decrypt(nonce, ct, None).decode()
+
+# Argon2 Hashing
+ph = PasswordHasher()
+
+def hash_master_password(password):
+    return ph.hash(password)
+
+def verify_master_password(hash, password):
+    try:
+        return ph.verify(hash, password)
+    except:
+        return False

@@ -1,3 +1,4 @@
-kyber-python>=0.2.0
-argon2-cffi>=21.3.0
-Flask>=2.0.0
+Flask
+argon2-cffi
+cryptography
+psycopg2-binary

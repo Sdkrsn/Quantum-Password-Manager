@@ -5,8 +5,8 @@ def get_db_connection():
     conn = psycopg2.connect(
         host="localhost",
         database="quantum_pm",
-        user="your_db_user",
-        password="your_db_password",
+        user="postgres",  # or your custom username
+        password="Sdkrsn@1234",  # replace with the password you set
         cursor_factory=RealDictCursor
     )
     return conn

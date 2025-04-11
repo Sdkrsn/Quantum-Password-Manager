@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1e1b4b, #4c1d95, #312e81);
+  background: linear-gradient(135deg, #000000, #26212d, #171632);
   color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -13,7 +13,7 @@ body {
 }
 
 .form-box {
-  background: rgba(30, 27, 75, 0.6);
+  background: rgba(30, 27, 75, 0.838);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem;
@@ -21,6 +21,7 @@ body {
   width: 100%;
   max-width: 400px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: transparent;
 }
 
 h2 {

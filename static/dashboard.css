@@ -1,13 +1,10 @@
-/* style.css - Main styles for the home page */
 body {
   margin: 0;
-  padding: 0;
+  padding: 30;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #1e1b4b, #4c1d95, #312e81);
   color: #ffffff;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding-top: 30;
 }
